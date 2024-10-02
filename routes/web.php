@@ -35,6 +35,7 @@ use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\HandleidingController;
 use App\Http\Controllers\ContactController;
+
 // Homepage
 Route::get('/', function () {
     $brands = Brand::all()->sortBy('name');
@@ -61,3 +62,6 @@ Route::get('/generateSitemap/', [SitemapController::class, 'generate']);
 
 Route::get('/contact', [ContactController::class, 'show']);
 
+Route::get('/greeting', function() {
+        return view('greeting', ['name'=>'Loukman']);
+});
