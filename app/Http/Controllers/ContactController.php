@@ -8,6 +8,6 @@ class ContactController extends Controller
 {
     public function show()
     {
-        return view('pages/contact'); // Geeft de contactpagina weer
+        return view('pages.contact'); // Geeft de contactpagina weer
     }
 }
