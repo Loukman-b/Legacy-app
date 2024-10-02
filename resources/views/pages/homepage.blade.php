@@ -22,10 +22,10 @@
     <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
         <!-- Example row of columns -->
         <div class="row">
-
+        
             @foreach($brands->chunk($chunk_size) as $chunk)
                 <div class="col-md-4">
-
+                
                 <ul>
                     @foreach($chunk as $brand)
 
@@ -40,8 +40,8 @@
                         $header_first_letter = $current_first_letter;
                         ?>
 
-                        <li class="my-2"> <!-- Voegt verticale marge toe -->
-                            <a class="bg-secondary bg-gradient rounded text-light p-1" href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/">{{ $brand->name }}</a>
+                        <li class="my-2 bg-secondary bg-gradient rounded shadow-sm hover:bg-light hover:text-dark hover:shadow-lg"> 
+                            <a class="  text-light p-3" href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/">{{ $brand->name }}</a>
                         </li>
                     @endforeach
                 </ul>
