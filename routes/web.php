@@ -33,10 +33,6 @@ use App\Http\Controllers\ManualController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\LocaleController;
-use App\Http\Controllers\HandleidingController;
-use App\Http\Controllers\ContactController;
-
-Route::get('/contact', [ContactController::class, 'show']);
 
 // Homepage
 Route::get('/', function () {
@@ -51,6 +47,8 @@ Route::get('/datafeeds/{brand_slug}.xml', [RedirectController::class, 'datafeed'
 
 // Locale routes
 Route::get('/language/{language_slug}/', [LocaleController::class, 'changeLocale']);
+Route::get('/increment-view/{manual_id}', action: [ManualController::class, 'incrementViewCount'])->name('increment');
+
 
 // List of manuals for a brand
 Route::get('/{brand_id}/{brand_slug}/', [BrandController::class, 'show']);
@@ -58,12 +56,6 @@ Route::get('/{brand_id}/{brand_slug}/', [BrandController::class, 'show']);
 // Detail page for a manual
 Route::get('/{brand_id}/{brand_slug}/{manual_id}/', [ManualController::class, 'show']);
 
+
 // Generate sitemaps
 Route::get('/generateSitemap/', [SitemapController::class, 'generate']);
-
-
-
-
-Route::get('/greeting', function() {
-        return view('greeting', ['name'=>'Loukman']);
-});

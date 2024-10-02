@@ -15,12 +15,16 @@
     <div class="row">
         @foreach ($manuals as $index => $manual)
             <div class="col-md-6 mb-3"> <!-- Colom 50% breedte -->
-                @if ($manual->locally_available)
-                    <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/{{ $manual->id }}/" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a>
-                    ({{$manual->filesize_human_readable}})
-                @else
-                    <a class="btn btn-primary mb-2" href="{{ $manual->url }}" target="new" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a>
-                @endif
+  @if ($manual->locally_available)
+            <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/{{ $manual->id }}/" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a>
+            ({{$manual->filesize_human_readable}})
+        @else
+            <a class="btn btn-primary mb-2" 
+               href="{{ route('increment', ['manual_id'=> $manual->id]) }}" 
+               target="_blank" 
+               alt="{{ $manual->name }}" 
+               title="{{ $manual->name }}">{{ $manual->name }}</a>
+        @endif
             </div>
 
             @if (($index + 1) % 2 === 0)
