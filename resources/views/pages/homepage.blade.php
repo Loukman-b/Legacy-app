@@ -19,7 +19,7 @@
     $chunk_size = ceil($size / $columns);
     ?>
 
-    <div class="container">
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
         <!-- Example row of columns -->
         <div class="row">
 
