@@ -1,6 +1,11 @@
-
-<footer>
-	© {{ __('misc.copyright') }}
+<footer class="bg-dark text-white">
+	© {{ date('Y') }} {{ __('misc.copyright') }}
+  <style>
+    .bg-dark{
+      background-color: #343a40 !important;
+    }
+    
+  </style>
 </footer>
 
 
