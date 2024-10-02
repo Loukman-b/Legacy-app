@@ -1,7 +1,7 @@
 <x-layouts.app>
 
 
-<!-- @section('content') -->
+
 <div class="container">
     <h1>Contact</h1>
     <form>
@@ -20,5 +20,5 @@
         <button type="submit" class="btn btn-primary">Verstuur</button>
     </form>
 </div>
-<!-- @endsection -->
+
 </x-layouts.app>

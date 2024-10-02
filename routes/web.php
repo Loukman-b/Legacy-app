@@ -36,6 +36,8 @@ use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\HandleidingController;
 use App\Http\Controllers\ContactController;
 
+Route::get('/contact', [ContactController::class, 'show']);
+
 // Homepage
 Route::get('/', function () {
     $brands = Brand::all()->sortBy('name');
@@ -60,7 +62,7 @@ Route::get('/{brand_id}/{brand_slug}/{manual_id}/', [ManualController::class, 's
 Route::get('/generateSitemap/', [SitemapController::class, 'generate']);
 
 
-Route::get('/contact', [ContactController::class, 'show']);
+
 
 Route::get('/greeting', function() {
         return view('greeting', ['name'=>'Loukman']);
