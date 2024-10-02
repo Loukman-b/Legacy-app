@@ -18,4 +18,18 @@ class ManualController extends Controller
             "brand" => $brand,
         ]);
     }
+
+    
+    public function incrementViewCount($manual_id)
+    {
+        $manual = Manual::find($manual_id);
+        if ($manual) {
+            $manual->increment('view_count'); // Increment the view_count
+            // Redirect to the manual's URL
+            return redirect()->away($manual->url); // Use redirect()->away to ensure the external URL works
+        }
+    
+        // Handle the case where the manual is not found (optional)
+    }
+    
 }
