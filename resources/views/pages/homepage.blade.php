@@ -18,11 +18,17 @@
     $columns = 3;
     $chunk_size = ceil($size / $columns);
     ?>
-
+<h1>Alle merken</h1>
+<p>Ga naar letter</p>
+<nav>
+    @foreach (range('A', 'Z') as $letter)
+        <a href="#{{ $letter }}">{{ $letter }}</a>
+    @endforeach
+</nav>
     <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
         <!-- Example row of columns -->
         <div class="row">
-        
+            
             @foreach($brands->chunk($chunk_size) as $chunk)
                 <div class="col-md-4">
                 
@@ -34,7 +40,7 @@
 
                         if (!isset($header_first_letter) || (isset($header_first_letter) && $current_first_letter != $header_first_letter)) {
                             echo '</ul>
-                            <h2>' . $current_first_letter . '</h2>
+                            <h2 id="' . $current_first_letter . '">' . $current_first_letter . '</h2>
                             <ul>';
                         }
                         $header_first_letter = $current_first_letter;
