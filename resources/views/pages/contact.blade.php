@@ -1,4 +1,5 @@
-@extends('layouts.app') <!-- Zorg ervoor dat deze regel verwijst naar jouw hoofdlay-out -->
+<x-layouts.app>
+
 
 @section('content')
 <div class="container">
@@ -20,3 +21,4 @@
     </form>
 </div>
 @endsection
+</x-layouts.app>
