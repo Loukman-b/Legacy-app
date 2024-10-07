@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('filename')->nullable();
             $table->string('downloadedServer')->nullable();
             $table->bigInteger('filesize');
-            $table->int('view_count')->nullable();
+            $table->interger('view_count');
             $table->timestamps();
 
             $table->foreign('brand_id')->references('id')->on('brands');
