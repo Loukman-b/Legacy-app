@@ -19,7 +19,10 @@ return new class extends Migration
             $table->text('originUrl');
             $table->string('filename')->nullable();
             $table->string('downloadedServer')->nullable();
+<<<<<<< HEAD
             $table->interger('view_count');
+=======
+>>>>>>> parent of c0f9ccd (migration change)
             $table->timestamps();
 
             $table->foreign('brand_id')->references('id')->on('brands');
