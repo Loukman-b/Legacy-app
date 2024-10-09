@@ -8,7 +8,7 @@
     <x-navbar/>
 
     <div class="container">
-        <div class="row">
+        <div class="row d-flex justify-content-center align-items-center">
 
             <div class="col-md-8">
                 <x-header/>
