@@ -55,27 +55,28 @@
             
                 @foreach($brands->chunk($chunk_size) as $chunk)
                     <div class="col-md-4">
-                    
-                    <ul>
-                        @foreach($chunk as $brand)
-
-                            <?php
-                            $current_first_letter = strtoupper(substr($brand->name, 0, 1));
-
-                            if (!isset($header_first_letter) || (isset($header_first_letter) && $current_first_letter != $header_first_letter)) {
-                                echo '</ul>
-                                <h2 id="' . $current_first_letter . '">' . $current_first_letter . '</h2>
-                                <ul>';
-                            }
-                            $header_first_letter = $current_first_letter;
-                            ?>
-
-                            <li class="my-2 bg-secondary bg-gradient rounded shadow-sm hover:bg-light hover:text-dark hover:shadow-lg"> 
-                                <a class="text-light p-3" href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/">{{ $brand->name }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
-
+                        <ul class="list-group">
+                            @foreach($chunk as $brand)
+                        
+                                <?php
+                                $current_first_letter = strtoupper(substr($brand->name, 0, 1));
+                        
+                                if (!isset($header_first_letter) || (isset($header_first_letter) && $current_first_letter != $header_first_letter)) {
+                                    echo '</ul>
+                                    <h2 id="' . $current_first_letter . '" class="mt-4 text-primary">' . $current_first_letter . '</h2>
+                                    <ul class="list-group">';
+                                }
+                                $header_first_letter = $current_first_letter;
+                                ?>
+                        
+                                <li class="list-group-item my-2 bg-secondary bg-gradient rounded shadow-sm hover:bg-light hover:text-dark hover:shadow-lg"> 
+                                    <a class="text-light p-3" href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/">{{ $brand->name }}</a>
+                                </li>
+                        
+                            @endforeach
+                        </ul>
+                        
+                        
                     </div>
                     <?php
                     unset($header_first_letter);
@@ -85,5 +86,6 @@
             </div>
         </div>
     </div>
+    
 
 </x-layouts.app>
